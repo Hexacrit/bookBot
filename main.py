@@ -3,9 +3,8 @@ def get_book_text(file):
         return f.read()
 
 def get_word_count(book):
-    book.split()
     word_count = 0
-    for item in book:
+    for _ in book.split():
         word_count += 1
     return f'{word_count} words found in the document'
 
