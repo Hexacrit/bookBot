@@ -1,3 +1,4 @@
+import sys
 
 def get_word_count(book):
     word_count = 0
@@ -26,10 +27,10 @@ def get_sorted_list(char_count):
 
 def print_sorted_list(sorted_list, word_count):
     print(f"""============ BOOKBOT ============
-Analyzing book found at books/frankenstein.txt...
+Analyzing book found at {sys.argv[1]}...
 ----------- Word Count ----------
 Found {word_count} total words
 --------- Character Count -------""")
-    #print(get_word_count(sorted_list))
+   #print(get_word_count(sorted_list))
     for item in sorted_list:
          print(f'{item['char']}: {item['num']}')
