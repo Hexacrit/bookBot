@@ -3,7 +3,7 @@ def get_word_count(book):
     word_count = 0
     for _ in book.split():
         word_count += 1
-    return f'{word_count} words found in the document'
+    return word_count
 
 def get_character_count(book):
     chars = {}
@@ -18,7 +18,18 @@ def get_character_count(book):
 def get_sorted_list(char_count):
     list_of_char_counts = []
     for key, val in char_count.items():
-        tempDict ={key : val}
-        list_of_char_counts.append(tempDict)
-        list_of_char_counts.sort(reverse=True)
-    print(list_of_char_counts)
+        if key.isalpha():
+            tempDict = {'char' : key, 'num' : val}
+            list_of_char_counts.append(tempDict)
+    sorted_list = sorted(list_of_char_counts, key=lambda x: x['num'], reverse=True)
+    return sorted_list
+
+def print_sorted_list(sorted_list, word_count):
+    print(f"""============ BOOKBOT ============
+Analyzing book found at books/frankenstein.txt...
+----------- Word Count ----------
+Found {word_count} total words
+--------- Character Count -------""")
+    #print(get_word_count(sorted_list))
+    for item in sorted_list:
+         print(f'{item['char']}: {item['num']}')

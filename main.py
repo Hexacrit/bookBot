@@ -6,9 +6,11 @@ def get_book_text(file):
 
 def main():
     book = get_book_text("./books/frankenstein.txt")
-    print(get_word_count(book))
-    #print(get_character_count(book))
-    get_sorted_list(get_character_count(book))
+    word_count = get_word_count(book) 
+    chars = get_character_count(book)
+    newList = get_sorted_list(chars)
+    print_sorted_list(newList, word_count)
+
 
 if __name__ == '__main__':
     main()
